@@ -1,9 +1,4 @@
-/**
- * @class Model
- *
- * Manages the data of the application.
- */
-export default class Model {
+class Model {
     constructor() {
         this.todos = JSON.parse(localStorage.getItem('todos')) || []
     }
