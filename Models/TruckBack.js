@@ -42,9 +42,10 @@ export default class TruckBack {
                     truckStorage.view.style.backgroundColor = "none";
                     truckStorage.view.style.backgroundImage = "url('Resources/packet.png')";
                     let data = e.dataTransfer.getData("text");
-                    let packet = JSON.parse(data);
-                    if(this.addPackage(packet.type, packet.rotation, packet.flipped, x, y))
-                        mainController.removePacket(packet.id);
+                    let pack = JSON.parse(data);
+                    if(this.addPackage(pack.type, pack.rotation, pack.flipped, x, y)) {
+                        this.mainController.removePackage(pack.id);
+                    }
                 });
 
                 this.truckStorages[x][y] = truckStorage;

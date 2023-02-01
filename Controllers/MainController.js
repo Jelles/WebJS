@@ -68,6 +68,10 @@ export default class MainController {
     addConveyor() {
         this.getActiveConveyorController().addConveyor();
     }
+
+    removePackage(id) {
+        this.getActiveConveyorController().removePackage(id);
+    }
 }
 
 const successCallback = (position) => {

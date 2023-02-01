@@ -11,21 +11,6 @@ export default class TruckStorage {
         this.view.style.opacity = 0.5;
         this.view.style.backgroundSize = "100% 100%";
 
-        // add x and y inside the view
-        let xText = document.createElement("p");
-        xText.innerHTML = "x:" + x;
-        xText.style.position = "absolute";
-        xText.style.color = "white";
-        xText.style.fontSize = "10px";
-
-        let yText = document.createElement("p");
-        yText.innerHTML = "y: " + y;
-        yText.style.position = "absolute";
-        yText.style.top = 15 + "px";
-        yText.style.color = "white";
-        yText.style.fontSize = "10px";
-
-
         this.view.addEventListener("dragstart", (e) => {
             e.preventDefault();
         });
@@ -47,9 +32,6 @@ export default class TruckStorage {
             this.view.style.backgroundColor = "none";
             this.view.style.backgroundImage = "url('Resources/packet.png')";
         });
-
-        this.view.appendChild(xText);
-        this.view.appendChild(yText);
 
         container.appendChild(this.view);
     }

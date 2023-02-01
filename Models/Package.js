@@ -15,7 +15,7 @@ export default class Package {
         this.container.style.zIndex = 1;
 
         this.container.addEventListener("contextmenu", (event) => { event.preventDefault(); this.onRightClick(); });
-        this.container.addEventListener("click", (event) => this.onLeftClick());
+        this.container.addEventListener("click", (event) => { event.preventDefault(); this.onLeftClick(); });
         this.container.addEventListener("dragstart", (event) => {
             const JSONData = JSON.stringify(this);
             event.dataTransfer.setData("text", JSONData);

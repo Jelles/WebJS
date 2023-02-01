@@ -2,19 +2,3 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
 }
-
-.in-active {
-    display: none;
-}
-
-#app {
-    margin: 2em;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-#loopband {
-    background-image: url("Resources/conveyor.png");
-    width: 100%;
-    height: 300px;
-}

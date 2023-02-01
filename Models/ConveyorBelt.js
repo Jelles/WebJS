@@ -28,6 +28,10 @@ export default class ConveyorBelt {
             e.preventDefault();
         });
 
+        this.belt.addEventListener("drop", (e) => {
+            e.preventDefault();
+        });
+
         setInterval(() => this.movePackages(), 10);
         setInterval(() => this.generatePackage(), 5000);
     }
@@ -35,6 +39,11 @@ export default class ConveyorBelt {
     addPackage(pack) {
         if(this.packages.includes(pack) === false) {
             this.packages.push(pack);
+        }
+    }
+
+    packageDrag() {
+        for (let i = 0; i < this.packages.length; i++) {
         }
     }
 
@@ -69,5 +78,17 @@ export default class ConveyorBelt {
                 }
             }
         }
+    }
+
+    removePackage(id) {
+        for (let i = 0; i < this.packages.length; i++) {
+            if(this.packages[i].id === id) {
+                this.packages[i].destroy();
+                this.packages.splice(i, 1);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -7,12 +7,6 @@ export default class TruckController {
 		this.active = active;
 		this.truckContainer = document.getElementById('truckContainer');
 		this.myContainer = document.createElement('div');
-
-		let truck = new Truck(0,73 * 8, 145, 2, TruckType.COLD_TRANSPORT, this);
-		this.truckIndex++;
-		this.trucks.push(truck);
-
-		this.myContainer.appendChild(truck.truckContainer);
 		this.truckContainer.appendChild(this.myContainer);
 		this.setActive(active);
 	}

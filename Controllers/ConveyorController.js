@@ -45,4 +45,12 @@ export default class ConveyorController {
     isActive() {
         return this.active;
     }
+
+    removePackage(id) {
+        for (let i = 0; i < this.conveyors.length; i++) {
+            const conveyor = this.conveyors[i];
+            if(conveyor.removePackage(id))
+                break;
+        }
+    }
 }
