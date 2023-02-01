@@ -13,7 +13,6 @@ export default class TruckBack {
             this.truckStorages[i] = new Array(amountVertical);
         }
 
-        console.log(this.truckStorages);
 
         this.view = document.createElement("div");
         this.view.style.width = length + "px";

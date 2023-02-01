@@ -24,6 +24,24 @@
         <div class="col-2">
             <button id="switchTabs" class="btn btn-primary m-1">Switch Tabs</button>
         </div>
+        <div class="col-2">
+            <div class="row">
+                <div class="col">
+                    <select id="weatherLocationSelect" class="form-control m-3"></select>
+                </div>
+                <div class="col">
+                    <img id="weatherIcon" class="m-1" alt="Weather Icon" src="Resources/weather-icons/unknown.png" style="width: 100px; height: 100px">
+                    <p>
+                        <span>Temp:</span>
+                        <span id="weatherTemp"></span>
+                    </p>
+                    <p>
+                        <span>Wind:</span>
+                        <span id="weatherSpeed"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div id="packagesContainer" style="z-index: 1"></div>
@@ -32,7 +50,7 @@
     </div>
 </div>
 
-<div id="truckModalContainer" class="h-auto position-absolute ml-auto mr-auto d-flex align-items-center justify-content-center" style="left: 0; right: 0; z-index: 3">
+<div id="truckModalContainer" class="h-auto position-absolute ml-auto mr-auto d-flex align-items-center justify-content-center" style="left: 0; right: 0; z-index: 3; top: 200px">
     <div id="truckModal" class="w-75 h-100 shadow-lg" style="display: none; z-index: 2" role="dialog">
         <div class="modal-content">
             <div class="modal-header">

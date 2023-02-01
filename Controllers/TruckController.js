@@ -17,9 +17,11 @@ export default class TruckController {
 		this.setActive(active);
 	}
 
-	addPackageToTruck(pack) {
+	addPackageToTruck(pack, weatherController) {
 		for (let i = 0; i < this.trucks.length; i++) {
 			const truck = this.trucks[i];
+			if (!weatherController.canDrive(truck.truckType))
+				continue;
 			// check truck active
 			if(!truck.isActive())
 				continue;
@@ -32,7 +34,7 @@ export default class TruckController {
 		return false;
 	}
 
-	addTruck(width, length, interval, type,  ) {
+	addTruck(width, length, interval, type,  mainController) {
 		let truck = new Truck(this.truckIndex, length, width, interval, type, mainController);
 		this.truckIndex++;
 		this.trucks.push(truck);
