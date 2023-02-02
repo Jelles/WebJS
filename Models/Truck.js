@@ -61,6 +61,7 @@ export default class Truck {
 				this.setActive(true);
 			}, this.interval * 1000);
 		}
+
 		return result;
 	}
 

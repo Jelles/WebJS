@@ -38,7 +38,6 @@ export default class TruckStorage {
 
     fill() {
         this.filled = true;
-        this.view.style.opacity = 1;
     }
 
     isFilled() {
@@ -48,5 +47,9 @@ export default class TruckStorage {
     unFill() {
         this.filled = false;
         this.view.style.opacity = 0.5;
+    }
+
+    setOpacity(opacity) {
+        this.view.style.opacity = opacity;
     }
 }

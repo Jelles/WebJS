@@ -1,10 +1,9 @@
 import Package, { PackageRotation, PackageType } from "./Package.js";
 
 export default class ConveyorBelt {
-    constructor(id, width, mainController, conveyorController) {
+    constructor(id, width, conveyorController) {
         this.id = id;
         this.conveyorController = conveyorController;
-        this.mainController = mainController;
         this.packages = [];
         this.width = width;
         this.height = 200;
@@ -42,11 +41,6 @@ export default class ConveyorBelt {
         }
     }
 
-    packageDrag() {
-        for (let i = 0; i < this.packages.length; i++) {
-        }
-    }
-
     generatePackage() {
         if (!this.conveyorController.isActive())
             return;
@@ -72,10 +66,12 @@ export default class ConveyorBelt {
             if(left < this.width - 35) {
                 pack.container.style.left = left + "px";
             } else {
-                if(this.mainController.addPackageToTruck(pack)) {
-                    pack.destroy();
-                    this.packages.splice(i, 1);
-                }
+                const container = pack.container;
+                const loc = container.getBoundingClientRect();
+                this.belt.removeChild(pack.container);
+
+                this.conveyorController.addPackageToQueue(pack, loc);
+                this.packages.splice(i, 1);
             }
         }
     }

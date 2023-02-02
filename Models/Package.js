@@ -26,6 +26,48 @@ export default class Package {
         this.draw();
     }
 
+    movePackageOverTime(x, y) {
+        x = parseInt(x);
+        y = parseInt(y);
+
+        let timer;
+        let pack = this;
+
+        return new Promise(resolve => timer = setInterval(function () {
+            // get current position of the package
+            let currentX = parseInt(pack.container.style.left);
+            let currentY = parseInt(pack.container.style.top);
+
+            // calculate the step size needed to move the package
+
+
+            let stepX = Math.ceil((x - currentX) / 10);
+            let stepY = Math.ceil((y - currentY) / 10);
+
+            // move the package step by step
+            pack.container.style.left = (currentX + stepX) + 'px';
+            pack.container.style.top = (currentY + stepY) + 'px';
+
+            console.log("Target location: " + x + ", " + y);
+            console.log("Current location: " + currentX + ", " + currentY);
+
+            // if the package has stopped moving (step size is 0), clear the timer
+            if (stepX === 0 && stepY === 0) {
+                console.log("Package has stopped moving");
+                clearInterval(timer);
+                resolve();
+            }
+
+            // if the package has reached the target location, clear the timer
+            if (currentX === x && currentY === y) {
+                console.log("Package has reached target location");
+                clearInterval(timer);
+                resolve();
+            }
+        }));
+
+    }
+
     draw() {
         while (this.container.firstChild) {
             this.container.removeChild(this.container.firstChild);

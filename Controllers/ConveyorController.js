@@ -9,7 +9,7 @@ export default class ConveyorController {
         this.conveyorContainer = document.getElementById('conveyorContainer');
         this.myContainer = document.createElement('div');
 
-        let conveyor = new ConveyorBelt(0,800, this.mainController, this);
+        let conveyor = new ConveyorBelt(0,800, this);
         this.conveyorIndex++;
 
         this.conveyors.push(conveyor);
@@ -17,6 +17,10 @@ export default class ConveyorController {
         this.myContainer.appendChild(conveyor.belt);
         this.conveyorContainer.appendChild(this.myContainer);
         this.setActive(active);
+    }
+
+    addPackageToQueue(pack, loc) {
+        this.mainController.addPackageToQueue(pack, loc);
     }
 
     addConveyor() {
@@ -28,7 +32,7 @@ export default class ConveyorController {
                 return;
             }
 
-            this.conveyors.push(new ConveyorBelt(this.conveyorIndex, width, this.mainController, this));
+            this.conveyors.push(new ConveyorBelt(this.conveyorIndex, width, this));
             this.myContainer.appendChild(this.conveyors[this.conveyorIndex].belt);
             this.conveyorIndex++;
             return;

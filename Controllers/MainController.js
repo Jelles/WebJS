@@ -11,13 +11,14 @@ export default class MainController {
 
         document.getElementById("switchTabs").addEventListener('click', () => this.switchTabs());
         document.getElementById('addConveyorBtn').addEventListener('click', () => this.addConveyor());
-
-
-
         document.getElementById('weatherLocationSelect').addEventListener('change', (event) => {
             const { value } = event.target;
             console.log(value);
         });
+
+        setInterval(() => {
+            this.fromQueueToTruck();
+        }, 1000);
 
         this.weatherControllerTab1 = new WeatherController(true);
         this.weatherControllerTab2 = new WeatherController(false);
@@ -60,9 +61,12 @@ export default class MainController {
         this.getActiveTruckController().addTruck(width, length, interval, type, this);
     }
 
-    addPackageToTruck(pack) {
+    addPackageToQueue(pack, loc) {
+        this.getActiveTruckController().addPackageToTruck(pack, loc);
+    }
 
-        return this.getActiveTruckController().addPackageToTruck(pack, this.getActiveWeatherController());
+    fromQueueToTruck() {
+        this.getActiveTruckController().fromQueueToTruck(this.getActiveWeatherController());
     }
 
     addConveyor() {
@@ -73,19 +77,3 @@ export default class MainController {
         this.getActiveConveyorController().removePackage(id);
     }
 }
-
-const successCallback = (position) => {
-    const { latitude, longitude } = position.coords;
-
-    // const currentWeather = new CurrentWeatherRequest(longitude, latitude, (data) => {
-    //     console.log("callback");
-    //     console.log(data);
-    // });
-
-};
-
-const errorCallback = (error) => {
-    console.log(error);
-};
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
