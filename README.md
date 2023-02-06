@@ -1,4 +1,12 @@
+## Installing dependencies
+ - http-server
+```
+$ npm install
+```
 ## Running the app
+
 ```
-./index.js %ProgramFiles%/Google/Chrome/Application/chrome.exe --allow-file-access-from-files --disable-web-security
+$ npm start
 ```
+
+You can now access the app at http://localhost:8080

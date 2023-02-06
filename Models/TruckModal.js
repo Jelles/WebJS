@@ -41,7 +41,7 @@ export default class TruckModal {
         let type = document.getElementById('truckTypeInput').value;
 
         if (width === "" || length === "" || interval === "" || type === "") {
-            alert("Please fill in all the fields");
+            alert("Please fill in all the fields correctly");
             return;
         }
 

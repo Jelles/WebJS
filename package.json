@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+    "scripts": {
+      "start": "http-server -p 8080"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jelles/WebJS.git"
