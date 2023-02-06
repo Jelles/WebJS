@@ -45,12 +45,6 @@ export default class Truck {
 		this.setActive(true);
 	}
 
-	/*
-	Als het regent of sneeuwt rijd de Breekbaar Transport niet.
-	Als het boven de 35 graden is rijd de Koud transport niet.
-	Bij harde wind rijdt de palletvrachtwagen niet. Pakketten voor deze vrachtwagens worden dan op een speciale plek opgeslagen.
- 	*/
-
 	addPackage(pack) {
 		let result = this.truckBack.addPackages(pack.type, pack.rotation, pack.flipped);
 		if(!result) {

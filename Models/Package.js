@@ -48,19 +48,14 @@ export default class Package {
             pack.container.style.left = (currentX + stepX) + 'px';
             pack.container.style.top = (currentY + stepY) + 'px';
 
-            console.log("Target location: " + x + ", " + y);
-            console.log("Current location: " + currentX + ", " + currentY);
-
             // if the package has stopped moving (step size is 0), clear the timer
             if (stepX === 0 && stepY === 0) {
-                console.log("Package has stopped moving");
                 clearInterval(timer);
                 resolve();
             }
 
             // if the package has reached the target location, clear the timer
             if (currentX === x && currentY === y) {
-                console.log("Package has reached target location");
                 clearInterval(timer);
                 resolve();
             }

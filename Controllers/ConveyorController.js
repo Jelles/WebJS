@@ -27,12 +27,12 @@ export default class ConveyorController {
         if(this.conveyors.length < 5) {
             // TODO Create conveyor belt and add to DOM
             let width = document.getElementById('conveyorWidth').value;
-            if (width < 100) {
-                alert("Min width is 100");
+            if (width < 1 || width > 8) {
+                alert("Please stay within the width range (1-8)");
                 return;
             }
 
-            this.conveyors.push(new ConveyorBelt(this.conveyorIndex, width, this));
+            this.conveyors.push(new ConveyorBelt(this.conveyorIndex, width * 100, this));
             this.myContainer.appendChild(this.conveyors[this.conveyorIndex].belt);
             this.conveyorIndex++;
             return;

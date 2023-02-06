@@ -45,6 +45,21 @@ export default class TruckModal {
             return;
         }
 
+        if (width < 2 || width > 8) {
+            alert("Please stay within the width range (2-8)")
+            return;
+        }
+
+        if (length < 3 || length > 25) {
+            alert("Please stay within the length range (3-25)")
+            return;
+        }
+
+        if (interval < 0 || interval > 60) {
+            alert("Please stay within the interval range (0-60)")
+            return;
+        }
+
         this.mainController.addTruck(width * 36, length * 36, interval, type);
         this.closeTruckModal();
     }

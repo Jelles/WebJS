@@ -18,7 +18,7 @@ export default class MainController {
 
         setInterval(() => {
             this.fromQueueToTruck();
-        }, 1000);
+        }, 250);
 
         this.weatherControllerTab1 = new WeatherController(true);
         this.weatherControllerTab2 = new WeatherController(false);

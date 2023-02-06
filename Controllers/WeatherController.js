@@ -2,9 +2,8 @@ import CurrentWeatherRequest from "../Request/CurrentWeatherRequest.js";
 import {TruckType} from "../Models/Truck.js";
 
 export default class WeatherController {
-    constructor(active, mainController) {
+    constructor(active) {
         this.weatherInfo = new WeatherInfo(-1, 0, 0);
-        this.mainController = mainController;
         this.active = active;
         this.currentWeather = "Amsterdam";
         this.setActive(active);
@@ -58,11 +57,11 @@ export default class WeatherController {
                     return false;
                 break;
             case TruckType.COLD_TRANSPORT:
-                if(this.weatherInfo.temperature > 35)
+                if(this.weatherInfo.temperature > 25)
                     return false;
                 break;
             case TruckType.PALLETS:
-                if(this.weatherInfo.windSpeed > 10)
+                if(this.weatherInfo.windSpeed > 15)
                     return false;
                 break;
         }
